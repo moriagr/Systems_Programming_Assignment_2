@@ -1,50 +1,65 @@
 // #include "my_mat.h"
 #include <stdio.h>
 #include <ctype.h>
-// #ifndef NUM_IN_FILE
-// #define NUM_IN_FILE 2
-// #endif
+#ifndef MATRIX_SIZE
+#define MATRIX_SIZE 10
+#endif
 
-int main(int argc, char *argv[])
+int main()
 {
-    int info;
-    // int numberArray[NUM_IN_FILE];
-    // int num_in_array = 0;
-    while (scanf("%lc", &info) == 1)
+    char info;
+    char current_letter;
+    int matrix[MATRIX_SIZE][MATRIX_SIZE];
+    int current_i = 0;
+    int current_j = 0;
+    while (scanf("%c", &info) == 1)
     {
-        printf("%lc:   ", info);
         if (isalpha(info))
         {
-            printf("it's a letter");
+            current_letter = info;
         }
         else if (isdigit(info))
         {
-            printf("it's a digit");
+            // int info_num = (int)info;
+            if (current_letter == 'A')
+            {
+                // Get matrics from user
+                matrix[current_i][current_j] = (int)info;
+                if (current_j >= 9)
+                {
+                    current_j = 0;
+                    current_i++;
+                }
+                else
+                {
+                    current_j++;
+                }
+            }
+            else if (current_letter == 'B')
+            {
+                // Get i, j to check if there ia a path between i and j
+                // printf("Get i, j to check if there ia a path between i and j");
+            }
+
+            else if (current_letter == 'C')
+            {
+                // Get i, j to recieve the sohortest course between them, else return -1
+                // printf("Get i, j to recieve the sohortest course between them, else return -1");
+            }
+            else if (current_letter == 'D')
+            {
+                return 0;
+            }
         }
-        else
+    }
+    int row, columns;
+    for (row = 0; row < MATRIX_SIZE; row++)
+    {
+        for (columns = 0; columns < MATRIX_SIZE; columns++)
         {
-            printf("something else?");
+            printf("%c     ", matrix[row][columns]);
         }
-        printf("\n");
-    }
-    if (info == 'A')
-    {
-        printf("Get matrics from user");
-    }
-    else if (info == "B")
-    {
-        printf("Get i, j to check if there ia a path between i and j");
-    }
-    else if (info == "C")
-    {
-        printf("Get i, j to check if there ia a path between i and j");
-    }
-    else if (info == "D")
-    {
-        printf("Get i, j to recieve the sohortest course between them, else return -1");
-    }
-    else{
-        return 0;
+        printf("\n\n");
     }
     return 0;
 }
