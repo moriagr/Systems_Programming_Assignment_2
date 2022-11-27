@@ -11,9 +11,9 @@
 #define MAX_NUMBER 999999
 #endif
 
-void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE])
+void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE], int min_dist_matrix_not_full)
 {
-    if (min_dist_matrix[0][0] == -10)
+    if (min_dist_matrix_not_full == 0)
     {
         //  let dist be a |V| × |V| array of minimum distances initialized to ∞ (infinity)
         for (int l = 0; l < MATRIX_SIZE; l++)
@@ -51,9 +51,9 @@ void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MA
     }
 }
 
-int existingPath(int i, int j, int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE])
+int existingPath(int i, int j, int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE], int min_dist_matrix_not_full)
 {
-    organizeShortestTable(matrix, min_dist_matrix);
+    organizeShortestTable(matrix, min_dist_matrix, min_dist_matrix_not_full);
 
     if (min_dist_matrix[i][j] != MAX_NUMBER)
     {
@@ -63,8 +63,8 @@ int existingPath(int i, int j, int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix
     return FALSE;
 }
 
-int shortestCourse(int i, int j, int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE])
+int shortestCourse(int i, int j, int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE], int min_dist_matrix_not_full)
 {
-    organizeShortestTable(matrix, min_dist_matrix);
+    organizeShortestTable(matrix, min_dist_matrix, min_dist_matrix_not_full);
     return min_dist_matrix[i][j];
 }
