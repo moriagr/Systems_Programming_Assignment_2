@@ -20,7 +20,7 @@ void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MA
         {
             for (int k = 0; k < MATRIX_SIZE; k++)
             {
-                if ((matrix[l][k] == 0))
+                if (matrix[l][k] == 0)
                 {
                     min_dist_matrix[l][k] = MAX_NUMBER;
                 }
