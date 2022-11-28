@@ -22,5 +22,5 @@ main.o:	main.c my_mat.h
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so *.gch main
+	rm -f *.o main
 
