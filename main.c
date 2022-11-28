@@ -54,7 +54,7 @@ int main()
             {
                 if (number != -1)
 
-                // Get matrics from user
+                // Get matrices from user
                 {
                     matrix[current_i][current_j] = number;
                     if (current_j >= 9)
@@ -98,7 +98,7 @@ int main()
             {
                 if (number != -1)
                 {
-                    // Get i, j to recieve the sohortest course between them, else return -1
+                    // Get i, j to receive the shortest course between them, else return -1
                     if (current_i < 2)
                     {
                         exist_path[current_i] = (int)(number);
