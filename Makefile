@@ -2,7 +2,7 @@ AR=ar
 CC=gcc
 FLAGS= -Wall -g
 
-all:	main
+all:	connections
 
 #lib.a:	my_mat.o
 #	$(CC) -rcs lib.a my_mat.o
@@ -10,7 +10,7 @@ all:	main
 #lib.so:	my_mat.o
 #	$(CC) -shared -o lib.so my_mat.o
 
-main:	main.o
+connections:	main.o
 	$(CC) $(FLAGS) -o main main.o -lm
 
 main.o:	main.c my_mat.h
@@ -22,4 +22,4 @@ main.o:	main.c my_mat.h
 .PHONY: clean all
 
 clean:
-	rm -f *.o main
+	rm -f *.o connections
