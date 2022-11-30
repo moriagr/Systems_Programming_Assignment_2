@@ -7,10 +7,6 @@
 #define MATRIX_SIZE 10
 #endif
 
-#ifndef MAX_NUMBER
-#define MAX_NUMBER 999999
-#endif
-
 void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MATRIX_SIZE], int min_dist_matrix_not_full)
 {
     if (min_dist_matrix_not_full == 0)
@@ -20,14 +16,7 @@ void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MA
         {
             for (int k = 0; k < MATRIX_SIZE; k++)
             {
-                if (matrix[l][k] == 0)
-                {
-                    min_dist_matrix[l][k] = MAX_NUMBER;
-                }
-                else
-                {
-                    min_dist_matrix[l][k] = matrix[l][k];
-                }
+                min_dist_matrix[l][k] = matrix[l][k];
             }
         }
 
@@ -41,9 +30,9 @@ void organizeShortestTable(int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix)[MA
                     int part1 = min_dist_matrix[l][k];
                     int part2 = min_dist_matrix[k][m];
                     int part = min_dist_matrix[l][m];
-                    if ((l != m) && (((int)(part) > (int)(part1) + (int)(part2))))
+                    if ((l != m) && (part1 != 0) && (part2 != 0) && ((part > part1 + part2) || part == 0))
                     {
-                        min_dist_matrix[l][m] = (int)((int)(part1) + (int)(part2));
+                        min_dist_matrix[l][m] = part1 + part2;
                     }
                 }
             }
@@ -55,7 +44,7 @@ int existingPath(int i, int j, int (*matrix)[MATRIX_SIZE], int (*min_dist_matrix
 {
     organizeShortestTable(matrix, min_dist_matrix, min_dist_matrix_not_full);
 
-    if (min_dist_matrix[i][j] != MAX_NUMBER)
+    if (min_dist_matrix[i][j] != 0)
     {
         return TRUE;
     }

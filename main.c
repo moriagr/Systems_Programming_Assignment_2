@@ -5,9 +5,7 @@
 #ifndef MATRIX_SIZE
 #define MATRIX_SIZE 10
 #endif
-#ifndef MAX_NUMBER
-#define MAX_NUMBER 999999
-#endif
+
 #ifndef PATH_SIZE
 #define PATH_SIZE 2
 #endif
@@ -36,6 +34,8 @@ int main()
             current_i = 0;
             current_j = 0;
         }
+
+        // Transform char number to int
         else if (isdigit(info))
         {
             if (number == -1)
@@ -108,7 +108,7 @@ int main()
                     {
                         int num = shortestCourse(exist_path[0], exist_path[1], matrix, min_dist_matrix, min_dist_matrix_not_full);
                         min_dist_matrix_not_full = 1;
-                        if (num == MAX_NUMBER)
+                        if (num == 0)
                         {
                             printf("-1\n");
                         }

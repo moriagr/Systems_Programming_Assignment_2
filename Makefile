@@ -23,4 +23,3 @@ main.o:	main.c my_mat.h
 
 clean:
 	rm -f *.o main
-
