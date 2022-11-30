@@ -11,7 +11,7 @@ all:	connections
 #	$(CC) -shared -o lib.so my_mat.o
 
 connections:	main.o
-	$(CC) $(FLAGS) -o main main.o -lm
+	$(CC) $(FLAGS) -o connections main.o -lm
 
 main.o:	main.c my_mat.h
 	$(CC) $(FLAGS) -c main.c
