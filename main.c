@@ -12,7 +12,7 @@
 
 int main()
 {
-    char info;
+    char info = '0';
     char current_letter;
     int matrix[MATRIX_SIZE][MATRIX_SIZE];
     int min_dist_matrix[MATRIX_SIZE][MATRIX_SIZE];
